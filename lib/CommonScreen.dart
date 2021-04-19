@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:wireless_social_dist/News.dart';
+import 'package:wireless_social_dist/SensorData.dart';
 
 class CommonScreen extends StatefulWidget {
   static const String id = "CommonScreen";
@@ -10,7 +12,10 @@ class _CommonScreenState extends State<CommonScreen> {
   int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
-    final _pageOptions = [];
+    final _pageOptions = [
+      SensorData(),
+      News(),
+    ];
     return MaterialApp(
       color: Colors.black,
       home: SafeArea(
@@ -21,13 +26,13 @@ class _CommonScreenState extends State<CommonScreen> {
           items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
-              title: Text("Home"),
+              title: Text("Active distance"),
             ),
             BottomNavigationBarItem(
               icon: Icon(
                 (Icons.dashboard),
               ),
-              title: Text("Dashboard"),
+              title: Text("News dashboard"),
             ),
           ],
           currentIndex: _selectedIndex,

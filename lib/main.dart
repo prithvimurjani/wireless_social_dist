@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wireless_social_dist/CommonScreen.dart';
+import 'package:wireless_social_dist/News.dart';
+import 'package:wireless_social_dist/SensorData.dart';
 import 'package:wireless_social_dist/WelcomeScreen.dart';
 
 void main() {
@@ -16,7 +18,8 @@ class MyApp extends StatelessWidget {
       routes: {
         WelcomeScreen.id: (context) => WelcomeScreen(),
         CommonScreen.id: (context) => CommonScreen(),
-        // Login.id:(context)=> Login(),
+        SensorData.id: (context) => SensorData(),
+        News.id: (context) => News(),
       },
     );
   }
