@@ -16,11 +16,10 @@ class _SensorDataState extends State<SensorData> {
   List lists = [];
   bool showSpinner = false;
 
-  void getSensorData() async {}
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Container(
         color: Colors.white,
         child: SafeArea(

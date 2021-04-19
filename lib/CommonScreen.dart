@@ -18,9 +18,18 @@ class _CommonScreenState extends State<CommonScreen> {
       News(),
     ];
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       color: Colors.white,
       home: SafeArea(
           child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.black,
+          centerTitle: true,
+          title: Text(
+            'Smart Social Distancer',
+          ),
+          actions: [],
+        ),
         backgroundColor: Colors.white,
         body: _pageOptions[_selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
@@ -39,7 +48,7 @@ class _CommonScreenState extends State<CommonScreen> {
           currentIndex: _selectedIndex,
           selectedItemColor: kPinkColor,
           backgroundColor: Colors.black,
-          unselectedItemColor: kBlueColor,
+          unselectedItemColor: Colors.white,
           onTap: (int index) {
             setState(() {
               _selectedIndex = index;
