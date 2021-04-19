@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:wireless_social_dist/News.dart';
 import 'package:wireless_social_dist/SensorData.dart';
+import 'package:wireless_social_dist/constants.dart';
 
 class CommonScreen extends StatefulWidget {
   static const String id = "CommonScreen";
@@ -17,15 +18,15 @@ class _CommonScreenState extends State<CommonScreen> {
       News(),
     ];
     return MaterialApp(
-      color: Colors.black,
+      color: Colors.white,
       home: SafeArea(
           child: Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white,
         body: _pageOptions[_selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
           items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
+              icon: Icon(Icons.directions_walk),
               title: Text("Active distancing"),
             ),
             BottomNavigationBarItem(
@@ -36,9 +37,9 @@ class _CommonScreenState extends State<CommonScreen> {
             ),
           ],
           currentIndex: _selectedIndex,
-          selectedItemColor: Colors.blueAccent,
+          selectedItemColor: kPinkColor,
           backgroundColor: Colors.black,
-          unselectedItemColor: Colors.white,
+          unselectedItemColor: kBlueColor,
           onTap: (int index) {
             setState(() {
               _selectedIndex = index;
