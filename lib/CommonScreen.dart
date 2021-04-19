@@ -26,13 +26,13 @@ class _CommonScreenState extends State<CommonScreen> {
           items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
-              title: Text("Active distance"),
+              title: Text("Active distancing"),
             ),
             BottomNavigationBarItem(
               icon: Icon(
                 (Icons.dashboard),
               ),
-              title: Text("News dashboard"),
+              title: Text("News"),
             ),
           ],
           currentIndex: _selectedIndex,

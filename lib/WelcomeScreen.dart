@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wireless_social_dist/CommonScreen.dart';
 import 'package:wireless_social_dist/constants.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -54,7 +55,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 highlightColor: kPinkColor,
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15)),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, CommonScreen.id);
+                },
               ),
             ],
           ),
