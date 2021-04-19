@@ -63,7 +63,26 @@ class _SensorDataState extends State<SensorData> {
                                       //     CrossAxisAlignment.center,
                                       children: <Widget>[
                                         SizedBox(
-                                          height: 25,
+                                          height: 50,
+                                        ),
+                                        Container(
+                                          decoration: BoxDecoration(
+                                              border:
+                                                  Border.all(color: kPinkColor),
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(15))),
+                                          //color: kPinkColor,
+                                          child: Text(
+                                            '  ' +
+                                                lists[3].toString() +
+                                                ' cm away  ',
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 18),
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 5,
                                         ),
                                         Image.asset(
                                           'wireless_images/index.jpeg',
@@ -76,27 +95,87 @@ class _SensorDataState extends State<SensorData> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                  left: 8.0),
-                                              child: RotatedBox(
-                                                quarterTurns: 1,
-                                                child: Image.asset(
-                                                  'wireless_images/index.jpeg',
-                                                  scale: 2,
+                                            Row(
+                                              children: [
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          left: 8.0),
+                                                  child: RotatedBox(
+                                                    quarterTurns: 1,
+                                                    child: Image.asset(
+                                                      'wireless_images/index.jpeg',
+                                                      scale: 2,
+                                                    ),
+                                                  ),
                                                 ),
-                                              ),
+                                                SizedBox(
+                                                  width: 5,
+                                                ),
+                                                RotatedBox(
+                                                  quarterTurns: 1,
+                                                  child: Container(
+                                                    decoration: BoxDecoration(
+                                                        border: Border.all(
+                                                            color: kPinkColor),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius.circular(
+                                                                    15))),
+                                                    //color: kPinkColor,
+                                                    child: Text(
+                                                      '  ' +
+                                                          lists[0].toString() +
+                                                          ' cm away  ',
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 18),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
                                             ),
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                  right: 8.0),
-                                              child: RotatedBox(
-                                                quarterTurns: 3,
-                                                child: Image.asset(
-                                                  'wireless_images/index.jpeg',
-                                                  scale: 2,
+                                            Row(
+                                              children: [
+                                                RotatedBox(
+                                                  quarterTurns: 3,
+                                                  child: Container(
+                                                    decoration: BoxDecoration(
+                                                        border: Border.all(
+                                                            color: kPinkColor),
+                                                        borderRadius:
+                                                            BorderRadius.all(
+                                                                Radius.circular(
+                                                                    15))),
+                                                    //color: kPinkColor,
+                                                    child: Text(
+                                                      '  ' +
+                                                          lists[2].toString() +
+                                                          ' cm away  ',
+                                                      style: TextStyle(
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          fontSize: 18),
+                                                    ),
+                                                  ),
                                                 ),
-                                              ),
+                                                SizedBox(
+                                                  width: 5,
+                                                ),
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          right: 8.0),
+                                                  child: RotatedBox(
+                                                    quarterTurns: 3,
+                                                    child: Image.asset(
+                                                      'wireless_images/index.jpeg',
+                                                      scale: 2,
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
                                             ),
                                           ],
                                         ),
@@ -109,7 +188,7 @@ class _SensorDataState extends State<SensorData> {
                             return CircularProgressIndicator();
                           }),
                       SizedBox(
-                        height: 50.0,
+                        height: 150.0,
                       ),
                       MaterialButton(
                         color: Colors.black,
