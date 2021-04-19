@@ -150,7 +150,7 @@ class _SensorDataState extends State<SensorData> {
                                                     //color: kPinkColor,
                                                     child: Text(
                                                       '  ' +
-                                                          lists[2].toString() +
+                                                          lists[4].toString() +
                                                           ' cm away  ',
                                                       style: TextStyle(
                                                           fontWeight:
@@ -202,6 +202,9 @@ class _SensorDataState extends State<SensorData> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15)),
                         onPressed: () {
+                          setState(() {
+                            this.widget;
+                          });
                           //Navigator.pushNamed(context, CommonScreen.id);
                         },
                       ),

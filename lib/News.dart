@@ -11,9 +11,11 @@ class News extends StatefulWidget {
 }
 
 class _NewsState extends State<News> {
-  DatabaseReference ref = FirebaseDatabase.instance.reference().child('/TODAY');
+  DatabaseReference ref =
+      FirebaseDatabase.instance.reference().child('/TODAY/News');
   final DBRef = FirebaseDatabase.instance.reference();
-  List lists = [];
+  List listsLocation = [];
+  List listsStatus = [];
   bool showSpinner = false;
   @override
   Widget build(BuildContext context) {
@@ -23,6 +25,7 @@ class _NewsState extends State<News> {
         color: Colors.white,
         child: SafeArea(
             child: Scaffold(
+                // resizeToAvoidBottomInset: true,
                 backgroundColor: Colors.white,
                 body: ModalProgressHUD(
                   inAsyncCall: showSpinner,
@@ -30,7 +33,7 @@ class _NewsState extends State<News> {
                     color: Colors.white,
                     size: 50.0,
                   ),
-                  child: Column(
+                  child: ListView(
                     children: <Widget>[
                       FutureBuilder(
                           future: ref.once(),
@@ -38,20 +41,24 @@ class _NewsState extends State<News> {
                               (context, AsyncSnapshot<DataSnapshot> snapshot) {
                             if (snapshot.hasData) {
                               //  print(snapshot.data.value);
-                              lists.clear();
+                              listsLocation.clear();
+                              listsStatus.clear();
 
                               Map<dynamic, dynamic> values =
                                   snapshot.data.value;
                               values.forEach((k, v) {
-                                lists.add(values[k]);
+                                listsLocation.add(k);
+                                listsStatus.add(v);
                                 print(k);
                                 print(v);
-                                print(lists);
+                                print(listsLocation);
+                                print(listsStatus);
                               });
 
                               return ListView.builder(
+                                  physics: ScrollPhysics(),
                                   shrinkWrap: true,
-                                  itemCount: 1,
+                                  itemCount: listsLocation.length,
                                   itemBuilder:
                                       (BuildContext context, int index) {
                                     return Column(
@@ -61,122 +68,53 @@ class _NewsState extends State<News> {
                                       //     CrossAxisAlignment.center,
                                       children: <Widget>[
                                         SizedBox(
-                                          height: 50,
+                                          height: 10,
                                         ),
                                         Container(
+                                          height: 90,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width -
+                                              16,
                                           decoration: BoxDecoration(
-                                              border:
-                                                  Border.all(color: kPinkColor),
+                                              //border:
+                                              // Border.all(color: kPinkColor),
                                               borderRadius: BorderRadius.all(
                                                   Radius.circular(15))),
                                           //color: kPinkColor,
-                                          child: Text(
-                                            '  ' +
-                                                lists[3].toString() +
-                                                ' cm away  ',
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 18),
+                                          child: Card(
+                                            color: kPinkColor,
+                                            child: Center(
+                                              child: Column(
+                                                // physics:
+                                                //     NeverScrollableScrollPhysics(),
+                                                children: [
+                                                  SizedBox(
+                                                    height: 12,
+                                                  ),
+                                                  Text(
+                                                    listsLocation[index]
+                                                        .toString(),
+                                                    style: TextStyle(
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        fontSize: 20),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 14,
+                                                  ),
+                                                  Text(
+                                                    listsStatus[index]
+                                                        .toString(),
+                                                    style:
+                                                        TextStyle(fontSize: 16),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
                                           ),
                                         ),
-                                        SizedBox(
-                                          height: 5,
-                                        ),
-                                        Image.asset(
-                                          'wireless_images/index.jpeg',
-                                          scale: 2,
-                                        ),
-                                        SizedBox(
-                                          height: 75,
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Row(
-                                              children: [
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          left: 8.0),
-                                                  child: RotatedBox(
-                                                    quarterTurns: 1,
-                                                    child: Image.asset(
-                                                      'wireless_images/index.jpeg',
-                                                      scale: 2,
-                                                    ),
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  width: 5,
-                                                ),
-                                                RotatedBox(
-                                                  quarterTurns: 1,
-                                                  child: Container(
-                                                    decoration: BoxDecoration(
-                                                        border: Border.all(
-                                                            color: kPinkColor),
-                                                        borderRadius:
-                                                            BorderRadius.all(
-                                                                Radius.circular(
-                                                                    15))),
-                                                    //color: kPinkColor,
-                                                    child: Text(
-                                                      '  ' +
-                                                          lists[0].toString() +
-                                                          ' cm away  ',
-                                                      style: TextStyle(
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                          fontSize: 18),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            Row(
-                                              children: [
-                                                RotatedBox(
-                                                  quarterTurns: 3,
-                                                  child: Container(
-                                                    decoration: BoxDecoration(
-                                                        border: Border.all(
-                                                            color: kPinkColor),
-                                                        borderRadius:
-                                                            BorderRadius.all(
-                                                                Radius.circular(
-                                                                    15))),
-                                                    //color: kPinkColor,
-                                                    child: Text(
-                                                      '  ' +
-                                                          lists[2].toString() +
-                                                          ' cm away  ',
-                                                      style: TextStyle(
-                                                          fontWeight:
-                                                              FontWeight.bold,
-                                                          fontSize: 18),
-                                                    ),
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  width: 5,
-                                                ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          right: 8.0),
-                                                  child: RotatedBox(
-                                                    quarterTurns: 3,
-                                                    child: Image.asset(
-                                                      'wireless_images/index.jpeg',
-                                                      scale: 2,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
+
                                         // FitCardBig(parameter: 'TEMPERATURE',concurrentdata: lists[0].toString(),iconparam: Icon(Icons.healing), ),
                                         // FitCardBig(parameter: 'DISTANCE',concurrentdata: lists[1].toString(),iconparam: Icon(Icons.alarm_on), ),
                                       ],
@@ -186,23 +124,29 @@ class _NewsState extends State<News> {
                             return CircularProgressIndicator();
                           }),
                       SizedBox(
-                        height: 150.0,
+                        height: 20.0,
                       ),
-                      MaterialButton(
-                        color: Colors.black,
-                        child: Text(
-                          "Tap to refresh",
-                          style: TextStyle(
-                            fontSize: 20.0,
-                            color: Colors.white,
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 65.0),
+                        child: MaterialButton(
+                          //minWidth: 30,
+                          color: Colors.black,
+                          child: Text(
+                            "Tap to refresh",
+                            style: TextStyle(
+                              fontSize: 20.0,
+                              color: Colors.white,
+                            ),
                           ),
+                          highlightColor: kPinkColor,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15)),
+                          onPressed: () {
+                            setState(() {
+                              this.widget;
+                            });
+                          },
                         ),
-                        highlightColor: kPinkColor,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15)),
-                        onPressed: () {
-                          //Navigator.pushNamed(context, CommonScreen.id);
-                        },
                       ),
                     ],
                   ),
