@@ -144,6 +144,7 @@ class _NewsState extends State<News> {
                           onPressed: () {
                             setState(() {
                               this.widget;
+                              
                             });
                           },
                         ),
