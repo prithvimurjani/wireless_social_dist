@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "946699555532",
+    "firebase_url": "https://covisafe-wireless-j-component-default-rtdb.firebaseio.com",
+    "project_id": "covisafe-wireless-j-component",
+    "storage_bucket": "covisafe-wireless-j-component.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:946699555532:android:d7b10d8d569bb5089ca869",
+        "android_client_info": {
+          "package_name": "com.example.wireless_social_dist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "946699555532-f22lgkdp612douu9lrvfq57d4h5mfvuh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXXOIEL7NZg34QH6OTQsSD6a0nUptdl2A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "946699555532-f22lgkdp612douu9lrvfq57d4h5mfvuh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
