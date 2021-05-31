@@ -26,7 +26,7 @@ class _CommonScreenState extends State<CommonScreen> {
           backgroundColor: Colors.black,
           centerTitle: true,
           title: Text(
-            'Smart Social Distancer',
+            'Smart Population Monitor',
           ),
           actions: [],
         ),
@@ -36,7 +36,7 @@ class _CommonScreenState extends State<CommonScreen> {
           items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.directions_walk),
-              title: Text("Active distancing"),
+              title: Text("Active count"),
             ),
             BottomNavigationBarItem(
               icon: Icon(

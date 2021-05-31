@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.wireless_social_dist">
    <application
-        android:label="wireless_social_dist"
+        android:label="M2M"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

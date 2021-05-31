@@ -24,14 +24,14 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Text(
-                    'Smart Social Distancing Device',
+                    'Smart Population Monitor',
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 20,
                         fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    'ECE 3040',
+                    'ECE 4026',
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: 16,
